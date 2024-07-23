@@ -1,8 +1,8 @@
 import React from "react";
 
 /* Images */
-import LoginLogo from "../../assets/sgmLogo.png";
-import LoginImage from "../../assets/iconLogin.png";
+import LoginLogo from "../../assets/Imgs/SGM-LOGO.png";
+import LoginImage from "../../assets/Imgs/IMG-LOGIN.png";
 
 /* Styled */
 import {
@@ -40,7 +40,9 @@ const index = () => {
             <InputLabel>Senha</InputLabel>
             <Input placeholder="Digite sua senha" type="password" />
           </ContainerInput>
-          <Button isLogin={true}>ENTRAR</Button>
+          <Button isLogin={true} type="submit">
+            ENTRAR
+          </Button>
         </ContainerForm>
       </ContainerLogin>
     </>

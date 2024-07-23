@@ -7,11 +7,8 @@ export const Button = styled.button`
   outline: none;
   font-size: 17px;
   line-height: 2.5px;
+  height: 50px;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.8;
-  }
 
   ${(props) =>
     props.isLogin &&
@@ -23,8 +20,50 @@ export const Button = styled.button`
     font-weight: 400;
     margin: 35px auto;
 
+    &:hover {
+    opacity: 0.8;
+    }
+
     @media (max-width:600px){ 
       margin: 35px 0;
       }
-    `}
+  `}
+
+  ${(props) =>
+    props.isClearHome &&
+    `
+    background: #c70606;
+    color: #fff;
+    padding: 10px;
+    margin: 20px auto; 
+     
+    &:hover {
+    background-color: #ff0000;
+    }
+  `}
+  
+  ${(props) =>
+    props.isCreateSessions &&
+    `
+    background: #229782;
+    color: #fff;
+    padding: 10px;
+    margin: 20px auto; 
+     
+    &:hover {
+    background-color: #2EC2A7;
+    }
+  `}
+
+  ${(props) =>
+    props.isSaveManagerButton &&
+    `
+   background: #229782;
+    color: #fff;
+    padding: 10px;
+    margin: 20px 0; 
+     
+    &:hover {
+    background-color: #2EC2A7;
+    }  `}
 `;
