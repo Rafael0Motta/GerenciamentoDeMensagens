@@ -2,12 +2,14 @@ import React, { useState } from "react";
 
 /* IMG */
 import LogoImage from "../../assets/Imgs/SGM-LOGO.png";
-import HomeIcon from "../../assets/Icons/HOME-ICON.svg";
-import SendIcon from "../../assets/Icons/SEND-ICON.svg";
-import WppIcon from "../../assets/Icons/WPP-ICON.svg";
-import HistoryIcon from "../../assets/Icons/HISTORY-ICON.svg";
-import CaretIcon from "../../assets/Icons/CARET-ICON.svg";
-import HamburguerMenu from "../../assets/Icons/HAMBURGUER-ICON.svg";
+
+import { FaHistory } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
+import { FaAlignRight } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa";
+
 
 /* STYLED */
 import {
@@ -18,7 +20,6 @@ import {
   Itens,
   SubItensContainer,
   SubItens,
-  Icon,
   HamburguerIcon,
 } from "./style";
 
@@ -33,14 +34,13 @@ const NavMenu = () => {
         <a href="/home">
           <Logo src={LogoImage} />
         </a>
-        <HamburguerIcon
-          src={HamburguerMenu}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+        <HamburguerIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <FaAlignRight />
+        </HamburguerIcon>
         <Nav isMenuOpen={isMenuOpen}>
           <ItensContainer>
             <Itens>
-              <Icon src={HomeIcon} />
+              <FaHome />
               Home
             </Itens>
             <Itens
@@ -48,8 +48,8 @@ const NavMenu = () => {
               onMouseLeave={() => setShowSendDropdown(false)}
               onClick={() => setShowSendDropdown(!showSendDropdown)}
             >
-              <Icon src={SendIcon} />
-              Envios <Icon src={CaretIcon} isCaret={true} />
+              <FaPaperPlane />
+              Envios <FaCaretDown />
               {showSendDropdown && (
                 <SubItensContainer isResponsive={isMenuOpen}>
                   <SubItens>Aniversáriante 🎂</SubItens>
@@ -68,8 +68,8 @@ const NavMenu = () => {
               onMouseLeave={() => setShowWppDropdown(false)}
               onClick={() => setShowWppDropdown(!showWppDropdown)}
             >
-              <Icon src={WppIcon} />
-              WhatsApp <Icon src={CaretIcon} isCaret={true} />
+              <FaWhatsapp />
+              WhatsApp <FaCaretDown />
               {showWppDropdown && (
                 <SubItensContainer isResponsive={isMenuOpen}>
                   <SubItens>Gerenciador de Sessões ⚙️</SubItens>
@@ -78,7 +78,7 @@ const NavMenu = () => {
               )}
             </Itens>
             <Itens>
-              <Icon src={HistoryIcon} />
+              <FaHistory />
               Histórico
             </Itens>
           </ItensContainer>

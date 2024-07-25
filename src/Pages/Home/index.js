@@ -1,10 +1,8 @@
 import React from "react";
 
-/* BootStrap */
-import ProgressBar from "react-bootstrap/ProgressBar";
-
-/* IMGS */
+/* IMGS | ICONS */
 import IconTrash from "../../assets/Icons/TRASH-ICON.svg";
+import { FaTrashAlt } from "react-icons/fa";
 
 /* COMPONENTS */
 import NavMenu from "../../Components/Nav";
@@ -19,7 +17,6 @@ import {
   CardCounter,
   CardParagraph,
   DeleteIconButton,
-  TrashIcon,
   CustomProgressBar,
 } from "./style";
 
@@ -33,7 +30,6 @@ const index = () => {
   };
 
   const now = 60;
-  const max = 100;
 
   return (
     <>
@@ -49,62 +45,7 @@ const index = () => {
           <CustomProgressBar animated now={now} label={`${now}%`} />
           <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
           <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
-          </DeleteIconButton>
-        </Card>
-
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
-          </DeleteIconButton>
-        </Card>
-
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
-          </DeleteIconButton>
-        </Card>
-
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
-          </DeleteIconButton>
-        </Card>
-
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
-          </DeleteIconButton>
-        </Card>
-
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <TrashIcon src={IconTrash} />
+            <FaTrashAlt />
           </DeleteIconButton>
         </Card>
       </CardsContainer>

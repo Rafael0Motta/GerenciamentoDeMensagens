@@ -15,6 +15,26 @@ export const Select = styled.select`
   margin: 5px 0 15px;
 `;
 
-export const WppQrCode = styled.div`
-  text-align: center;
+export const Table = styled.table`
+  width: 90%;
+  margin: 50px auto;
+`;
+
+export const TableHead = styled.thead`
+  width: 100%;
+`;
+
+export const TableBody = styled.tbody``;
+
+export const TableRow = styled.tr`
+  border-bottom: solid 1px #ebebeb;
+  cursor: pointer;
+`;
+
+export const TableHeaderData = styled.th`
+  padding: 10px 5px 10px 5px;
+`;
+
+export const TableData = styled.td`
+  padding: 10px 5px 10px 5px;
 `;

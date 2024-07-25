@@ -19,4 +19,13 @@ hr, fieldset, legend {
   font-size: 16px;
   color: #000;
 }
+
+tbody, td, tfoot, th, thead, tr { 
+  border-color: #000;
+    border-style: solid;
+    border-width: 0;
+    font-size: 16px;
+}
+
+
 `;

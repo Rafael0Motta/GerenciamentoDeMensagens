@@ -16,11 +16,6 @@ export const Logo = styled.img`
   margin: 0 0 0 50px;
 `;
 
-export const Icon = styled.img`
-  width: ${({ isCaret }) => (isCaret ? "10px" : "20px")};
-  height: auto;
-`;
-
 export const Nav = styled.nav`
   margin-right: 50px;
 
@@ -72,7 +67,7 @@ export const SubItensContainer = styled.ul`
   list-style: none;
   position: absolute;
   top: 100%;
-  width: 300px;
+  width: 250px;
   left: 0;
   background-color: #2ec2a7;
   padding: 15px;
@@ -84,10 +79,13 @@ export const SubItensContainer = styled.ul`
   }
 
   @media (max-width: 1000px) {
-    position: relative;
-    width: 100%;
-    padding: 10px 0;
+    position: absolute;
+    width: 250px;
+    padding: 5px 0 0 20px;
     box-shadow: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
     display: ${({ isResponsive }) => (isResponsive ? "block" : "none")};
   }
 `;
@@ -103,11 +101,12 @@ export const SubItens = styled.li`
   }
 `;
 
-export const HamburguerIcon = styled.img`
+export const HamburguerIcon = styled.div`
   display: none;
-  width: 30px;
+  font-size: 25px;
   height: auto;
   cursor: pointer;
+  color: #fff;
 
   @media (max-width: 1000px) {
     display: block;

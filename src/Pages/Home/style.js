@@ -50,16 +50,13 @@ export const DeleteIconButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  font-size: 20px;
 
   &:hover {
     cursor: pointer;
     background-color: #ff0000;
   }
-`;
-
-export const TrashIcon = styled.img`
-  width: 25px;
-  height: 25px;
 `;
 
 export const CustomProgressBar = styled(ProgressBar)`

@@ -65,5 +65,49 @@ export const Button = styled.button`
      
     &:hover {
     background-color: #2EC2A7;
-    }  `}
+    }  
+  `}
+
+  ${(props) =>
+    props.hasOwnProperty("isOnline") &&
+    (props.isOnline
+      ? `
+     display: block;
+     border: none;
+     border-radius: 5px;
+     outline: none;
+     font-size: 13px;
+     line-height: 0;
+     height: 25px;
+     cursor: pointer;
+     background: #229782;
+    font-weight: 500;
+     padding: 6px 10px;
+     color: #fff;
+           
+      `
+      : `
+      display: block;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 13px;
+      line-height: 0;
+      height: 25px;
+      cursor: pointer;
+      background:  #ab0909;
+      padding: 6px 10px;
+    font-weight: 500;
+      color: #fff;
+    
+      `)}
+
+    ${(props) =>
+    props.isIconButton &&
+    `    
+      margin: 0 5px;
+      height: 0;
+      display:inline-block;
+      background: transparent; 
+    `}
 `;

@@ -1,26 +1,60 @@
 import React, { useState } from "react";
 
-/* BootStrap */
-import Modal from "react-bootstrap/Modal";
-import Spinner from "react-bootstrap/Spinner";
+/* ICONS */
+import { FaTrashAlt } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
+import { FaPause } from "react-icons/fa";
 
 /* Components */
 import Nav from "../../Components/Nav/index";
+import Input from "../../Components/Input/index";
 import Title from "../../Components/Title/index";
 import Button from "../../Components/Button/index";
-import Input from "../../Components/Input/index";
-import InputLabel from "../../Components/InputLabel/index";
+import NewSessions from "../../Components/Modals/NewSessions";
+import ConfigSessions from "../../Components/Modals/ConfigSessions";
 
-/* Styled */
-import { ButtonsContainer, Select, WppQrCode } from "./style";
+/* Style */
+import {
+  ButtonsContainer,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeaderData,
+  TableData,
+} from "./style";
 
 const ManagerSessions = () => {
   const [show, setShow] = useState(false);
-  const [sendInterval, setSendInterval] = useState(0);
-  const [intervalSend, setIntervalSend] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleDelete = () => {
+    // TODO: Implementar a lógica para excluir a sessão
+    console.log("Excluindo sessão");
+  };
+
+  const handlePlay = () => {
+    // TODO: Implementar a lógica para iniciar a sessão
+    console.log("Iniciando sessão");
+  };
+
+  const handlePause = () => {
+    // TODO: Implementar a lógica para pausar a sessão
+    console.log("Pausando sessão");
+  };
+
+  const handleClickOnRow = () => {
+    // TODO: Implementar a lógica para abrir a página de visualização da sessão
+    console.log("Visualizando sessão");
+
+    /* <ConfigSessions 
+      show={show}
+      handleClose={handleClose} 
+        ADICIONAR LOGICA PARA ABRIR SOMENTE QUANDO CLICAR NA RESPECTIVA SESSÃO.
+    />; */
+  };
 
   return (
     <>
@@ -32,64 +66,48 @@ const ManagerSessions = () => {
         </Button>
       </ButtonsContainer>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Nova Sessão</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <InputLabel>Nome da Sessão:</InputLabel>
-          <Input
-            type="text"
-            placeholder="Nome da Sessão"
-            isNewSessionsInput={true}
-          />
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeaderData scope="col">
+              <Input type="checkbox" isCheckboxSessions={true} />
+            </TableHeaderData>
+            <TableHeaderData scope="col">Nome</TableHeaderData>
+            <TableHeaderData scope="col">Status</TableHeaderData>
+            <TableHeaderData scope="col">Última Atualização</TableHeaderData>
+            <TableHeaderData scope="col">Ações</TableHeaderData>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow onClick={handleClickOnRow}>
+            <TableData>
+              <Input type="checkbox" isCheckboxSessions={true} />
+            </TableData>
+            <TableData>GAJ - 21993324134 - A</TableData>
+            <TableData>
+              <Button isOnline={true} type="submit">
+                Online
+              </Button>
+            </TableData>
+            <TableData>12/05/2021</TableData>
+            <TableData isIconsButtons={true}>
+              <Button type="button" onClick={handleDelete} isIconButton={true}>
+                <FaTrashAlt />
+              </Button>
 
-          <InputLabel>Token da Sessão:</InputLabel>
-          <Input
-            type="text"
-            placeholder="Token da Sessão"
-            isNewSessionsInput={true}
-          />
+              <Button type="button" onClick={handlePause} isIconButton={true}>
+                <FaPause />
+              </Button>
 
-          <InputLabel>Responsável da sessão:</InputLabel>
-          <Select id="cars" name="carlist" form="carform">
-            <option value="boletos">boletos</option>
-            <option value="crgomes">crgomes</option>
-            <option value="bmg">bmg</option>
-            <option value="dominos">dominos</option>
-          </Select>
+              <Button type="button" onClick={handlePlay} isIconButton={true}>
+                <FaPlay />
+              </Button>
+            </TableData>
+          </TableRow>
+        </TableBody>
+      </Table>
 
-          <InputLabel>
-            Intervalo de Envio: <b>{intervalSend}</b> Minutos
-          </InputLabel>
-          <Input
-            type="range"
-            max="60"
-            isNewSessionsInput={true}
-            onChange={(e) => setIntervalSend(e.target.value)}
-          />
-
-          <InputLabel>
-            Envios por Intervalo: <b>{sendInterval}</b> Envios
-          </InputLabel>
-          <Input
-            type="range"
-            max="200"
-            isNewSessionsInput={true}
-            onChange={(e) => setSendInterval(e.target.value)}
-          />
-
-          <WppQrCode>
-            <Title>QRCODE WPP</Title>
-            <Spinner animation="border"></Spinner>
-          </WppQrCode>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose} isSaveManagerButton>
-            Salvar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <NewSessions show={show} handleClose={handleClose} />
     </>
   );
 };
