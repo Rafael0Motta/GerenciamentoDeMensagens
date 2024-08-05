@@ -3,18 +3,39 @@ import React, { useState } from "react";
 /* Components */
 import Nav from "../../Components/Nav/index";
 import Title from "../../Components/Title/index";
-import Button from "../../Components/Button/index";
-import NewSessions from "../../Components/Modals/NewSessions";
 import TableHead from "../../Components/Table/TableHead";
 import TableBody from "../../Components/Table/TableBody";
-
-/* import ConfigSessions from "../../Components/Modals/ConfigSessions";
- */
 
 /* Style */
 import { Table } from "./style";
 
-const ManagerSessions = () => {
+import Button from "../../Components/Button";
+
+const UsersManager = () => {
+  const teste = [
+    {
+      id: 1,
+      usuario: "Boletos",
+      login: "boletos.gaj",
+      admin: "Sim",
+      status: "ATIVO",
+    },
+    {
+      id: 2,
+      usuario: "Dinamo",
+      login: "dinamo.elaine",
+      admin: "Não",
+      status: "INATIVO",
+    },
+    {
+      id: 3,
+      usuario: "Vendas",
+      login: "vendas.hbm",
+      admin: "Sim",
+      status: "ATIVO",
+    },
+  ];
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -45,61 +66,33 @@ const ManagerSessions = () => {
         ADICIONAR LOGICA PARA ABRIR SOMENTE QUANDO CLICAR NA RESPECTIVA SESSÃO.
     />;  
   }; */
-
-  const teste = [
-    {
-      id: 1,
-      name: "Sessão 1",
-      status: "ONLINE",
-      lastUpdate: "12/03/2023",
-    },
-    {
-      id: 2,
-      name: "Sessão 2",
-      status: "OFFLINE",
-      lastUpdate: "11/03/2023",
-    },
-    {
-      id: 3,
-      name: "Sessão 3",
-      status: "ONLINE",
-      lastUpdate: "10/03/2023",
-    },
-    {
-      id: 4,
-      name: "Sessão 4",
-      status: "OFFLINE",
-      lastUpdate: "10/03/2023",
-    },
-  ];
-
   return (
     <>
       <Nav />
-      <Title>Gerenciador de Sessões</Title>
+      <Title>Manager Users</Title>
       <Button type="button" isCreateSessions={true} onClick={handleShow}>
         Criar Sessão
       </Button>
-
       <Table>
         <TableHead
-          column1={"Nome"}
+          column1={"Usuario"}
           column2={"Status"}
-          column3={"Última Atualização"}
-          column4={"Ações"}
+          column3={"Admin?"}
+          column4={"Login"}
         />
         {teste.map((item) => (
           <TableBody
             key={item.id}
-            column1={item.name}
+            column1={item.usuario}
             column2={item.status}
-            column3={item.lastUpdate}
+            column3={item.admin}
+            column4={item.login}
+            HideButtons={true}
           />
         ))}
       </Table>
-      <NewSessions show={show} handleClose={handleClose} />
     </>
   );
 };
 
-export default ManagerSessions;
+export default UsersManager;

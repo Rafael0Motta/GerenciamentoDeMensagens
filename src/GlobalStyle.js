@@ -9,6 +9,15 @@ export default createGlobalStyle`
     transition: all 0.3s ease-in-out;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:focus, a:active {
+    outline: none;
+  }
+
 body,
 h1, h2, h3, h4, h5, h6,.h1, .h2, .h3, .h4, .h5, .h6,
 p, blockquote, pre,

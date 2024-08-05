@@ -69,9 +69,8 @@ export const Button = styled.button`
   `}
 
   ${(props) =>
-    props.hasOwnProperty("isOnline") &&
-    (props.isOnline
-      ? `
+    props.status === "ONLINE" &&
+    `
      display: block;
      border: none;
      border-radius: 5px;
@@ -81,26 +80,82 @@ export const Button = styled.button`
      height: 25px;
      cursor: pointer;
      background: #229782;
-    font-weight: 500;
+     font-weight: 500;    
+     width: 70px;
      padding: 6px 10px;
-     color: #fff;
-           
-      `
-      : `
+     color: #fff; }
+  `}
+    ${(props) =>
+    props.status === "OFFLINE" &&
+    `
       display: block;
       border: none;
       border-radius: 5px;
       outline: none;
       font-size: 13px;
-      line-height: 0;
+      line-height: 0; 
+      width: 70px;
       height: 25px;
       cursor: pointer;
       background:  #ab0909;
       padding: 6px 10px;
-    font-weight: 500;
-      color: #fff;
-    
-      `)}
+      font-weight: 500;
+      color: #fff;       
+    }`}
+
+${(props) =>
+    props.status === "ATIVO" &&
+    `
+     display: block;
+     border: none;
+     border-radius: 5px;
+     outline: none;
+     font-size: 13px;
+     line-height: 0;
+     height: 25px;
+     cursor: pointer;
+     background: #229782;
+     font-weight: 500;    
+     width: 70px;
+     padding: 6px 10px;
+     color: #fff; }
+  `}
+  
+  ${(props) =>
+    props.status === "INATIVO" &&
+    `
+      display: block;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 13px;
+      line-height: 0; 
+      width: 70px;
+      height: 25px;
+      cursor: pointer;
+      background:  #ab0909;
+      padding: 6px 10px;
+      font-weight: 500;
+      color: #fff;       
+    }`}
+
+${(props) =>
+    props.status === "ABERTO" &&
+    `
+      display: block;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      font-size: 13px;
+      line-height: 0; 
+      width: 70px;
+      height: 25px;
+      cursor: pointer;
+      background:  #FFC107;
+      padding: 6px 10px;
+      font-weight: 500;
+      color: #000;       
+    }`}
 
     ${(props) =>
     props.isIconButton &&
@@ -109,5 +164,31 @@ export const Button = styled.button`
       height: 0;
       display:inline-block;
       background: transparent; 
+    `}
+
+    ${(props) =>
+    props.isAddUser &&
+    `
+    background: #229782;
+    color: #fff;
+    padding: 10px;
+    margin: 20px auto; 
+     
+    &:hover {
+    background-color: #2EC2A7;
+    }
+    `}
+
+    ${(props) =>
+    props.isBoletosButtons &&
+    `
+    background: #229782;
+    color: #fff;
+    padding: 10px;
+    margin: 20px 10px; 
+     
+    &:hover {
+    background-color: #2EC2A7;
+    }
     `}
 `;

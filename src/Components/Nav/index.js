@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 /* IMG */
 import LogoImage from "../../assets/Imgs/SGM-LOGO.png";
@@ -9,7 +10,6 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaPaperPlane } from "react-icons/fa";
 import { FaAlignRight } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
-
 
 /* STYLED */
 import {
@@ -31,18 +31,20 @@ const NavMenu = () => {
   return (
     <>
       <HeaderContainer isMenuOpen={isMenuOpen}>
-        <a href="/home">
+        <Link to="/Home">
           <Logo src={LogoImage} />
-        </a>
+        </Link>
         <HamburguerIcon onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <FaAlignRight />
         </HamburguerIcon>
         <Nav isMenuOpen={isMenuOpen}>
           <ItensContainer>
-            <Itens>
-              <FaHome />
-              Home
-            </Itens>
+            <Link to="/Home">
+              <Itens>
+                <FaHome />
+                Home
+              </Itens>
+            </Link>
             <Itens
               onMouseEnter={() => setShowSendDropdown(true)}
               onMouseLeave={() => setShowSendDropdown(false)}
@@ -52,14 +54,13 @@ const NavMenu = () => {
               Envios <FaCaretDown />
               {showSendDropdown && (
                 <SubItensContainer isResponsive={isMenuOpen}>
-                  <SubItens>Aniversáriante 🎂</SubItens>
-                  <SubItens>Boas Vindas 🚪</SubItens>
+                  <Link to="/massa-csv">
+                    <SubItens>Massa CSV 🌐</SubItens>
+                  </Link>
                   <hr />
-                  <SubItens>Massa SGA 🌐</SubItens>
-                  <SubItens>Massa CSV 🌐</SubItens>
-                  <SubItens>Massa SGA 🌐</SubItens>
-                  <hr />
-                  <SubItens>Boletos por Vencimento 📅</SubItens>
+                  <Link to="/boletos">
+                    <SubItens>Boletos por Vencimento 📅</SubItens>
+                  </Link>
                 </SubItensContainer>
               )}
             </Itens>
@@ -72,15 +73,22 @@ const NavMenu = () => {
               WhatsApp <FaCaretDown />
               {showWppDropdown && (
                 <SubItensContainer isResponsive={isMenuOpen}>
-                  <SubItens>Gerenciador de Sessões ⚙️</SubItens>
-                  <SubItens>Usuários 👨🏽‍💻</SubItens>
+                  <Link to="/managersessions">
+                    <SubItens>Gerenciador de Sessões ⚙️</SubItens>
+                  </Link>
+                  <hr />
+                  <Link to="/managerusers">
+                    <SubItens>Usuários 👨🏽‍💻</SubItens>
+                  </Link>
                 </SubItensContainer>
               )}
             </Itens>
-            <Itens>
-              <FaHistory />
-              Histórico
-            </Itens>
+            <Link to="/historico">
+              <Itens>
+                <FaHistory />
+                Histórico
+              </Itens>
+            </Link>
           </ItensContainer>
         </Nav>
       </HeaderContainer>

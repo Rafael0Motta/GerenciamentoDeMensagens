@@ -1,24 +1,15 @@
 import React from "react";
 
 /* IMGS | ICONS */
-import IconTrash from "../../assets/Icons/TRASH-ICON.svg";
-import { FaTrashAlt } from "react-icons/fa";
 
 /* COMPONENTS */
 import NavMenu from "../../Components/Nav";
 import Title from "../../Components/Title";
 import Button from "../../Components/Button";
+import Cards from "../../Components/Cards/index";
 
 /* STYLES */
-import {
-  CardsContainer,
-  Card,
-  CardHeader,
-  CardCounter,
-  CardParagraph,
-  DeleteIconButton,
-  CustomProgressBar,
-} from "./style";
+import { CardsContainer } from "./style";
 
 const index = () => {
   const clearAllCards = () => {
@@ -29,7 +20,29 @@ const index = () => {
     // Logic to clear a single service
   };
 
-  const now = 60;
+  const cardContent = [
+    {
+      id: 1,
+      name: "Qualidade - 21999999999",
+      count: "31-31",
+      percent: "100",
+      init: "Iniciado em 17-21-32",
+    },
+    {
+      id: 2,
+      name: "teste - 21999999999",
+      count: "20-40",
+      percent: "50",
+      init: "Iniciado em 17-21-32",
+    },
+    {
+      id: 3,
+      name: "teste3 - 21999999999",
+      count: "90-100",
+      percent: "90",
+      init: "Iniciado em 17-21-32",
+    },
+  ];
 
   return (
     <>
@@ -38,16 +51,15 @@ const index = () => {
       <Button isClearHome={true}>LIMPAR SERVIÇOS</Button>
 
       <CardsContainer>
-        <Card>
-          <CardHeader>Qualidade - 21999999999</CardHeader>
-          <hr></hr>
-          <CardCounter>31-31</CardCounter>
-          <CustomProgressBar animated now={now} label={`${now}%`} />
-          <CardParagraph>Iniciado em 17/07/2024 ÀS 08:48</CardParagraph>
-          <DeleteIconButton>
-            <FaTrashAlt />
-          </DeleteIconButton>
-        </Card>
+        {cardContent.map((item) => (
+          <Cards
+            key={item.id}
+            name={item.name}
+            count={item.count}
+            percent={item.percent}
+            init={item.init}
+          />
+        ))}
       </CardsContainer>
     </>
   );
